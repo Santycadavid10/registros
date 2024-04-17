@@ -1,0 +1,83 @@
+@model Registros.Models.User
+
+<link rel="stylesheet" href="~/css/Index.css" />
+
+<meta http-equiv="refresh" content="10; url=/Home/Index" />// para que alos 10 seg cambie de vista
+
+<div class="login-box" id="caja2">
+
+  <div>
+    <div class="user-box">
+
+    </div>
+
+    <h2>Datos</h2>
+    <h3>Nombre: @Model.nombre</h3>
+    <h3 id="Horaentrada"></h3>
+    <h3 id="Horasalida"></h3>
+  </div>
+</div>
+
+
+<script>
+  // Crear un objeto JSON con los datos del usuario actual
+  var datosUsuarioActual = {
+    id: "@Model.Id",
+    nombre: "@Model.nombre",
+    horaInicio: "@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")"
+  };
+
+  var modeloId = "@Model.Id";
+
+  var listaRegistrosJSON = localStorage.getItem("registros");
+   
+  // Verificar si hay registros en el almacenamiento local
+  if (listaRegistrosJSON) {
+    // Convertir la cadena JSON a un arreglo de objetos JavaScript
+    var registros = JSON.parse(listaRegistrosJSON);
+
+    // Variable para indicar si se encontró el registro con el id buscado
+   
+    var encontrado = false;
+    // Recorrer los registros para buscar el id deseado
+    for (var i = 0; i < registros.length; i++) {
+      // Obtener el registro actual
+      console.log(registros.length);
+      var registro = registros[i];
+      // Comparar el id del registro actual con el id buscado
+      if (registro.id === modeloId) { // Aquí puedes cambiar "1" por el id que estás buscando
+        encontrado = true;
+        // Hacer algo con el registro encontrado, por ejemplo:
+
+        var horasElement = document.getElementById("Horaentrada");
+        horasElement.innerText = "Hora de entrada: " + registro.horaInicio;
+        var horasElement1 = document.getElementById("Horasalida");
+      horasElement1.innerText = "Hora de salida: " + datosUsuarioActual.horaInicio;
+      
+      }
+    }
+
+    // Si el registro con el id buscado no se encontró
+    if (!encontrado) {
+      var horasElement = document.getElementById("Horaentrada");
+      horasElement.innerText = "Hora de entrada: " + datosUsuarioActual.horaInicio;
+    }
+  } else {
+    var horasElement = document.getElementById("Horaentrada");
+      horasElement.innerText = "Hora de entrada: " + datosUsuarioActual.horaInicio;
+  }
+
+
+
+  // Obtener la lista de registros almacenada en el almacenamiento local (si existe)
+  var listaRegistrosJSON = localStorage.getItem("registros");
+
+  // Si la lista de registros no existe, crear un arreglo vacío
+  var registros = listaRegistrosJSON ? JSON.parse(listaRegistrosJSON) : [];
+
+  // Agregar el nuevo registro al arreglo de registros
+  registros.push(datosUsuarioActual);
+
+  // Guardar el arreglo de registros actualizado en el almacenamiento local
+  localStorage.setItem("registros", JSON.stringify(registros));
+</script>
