@@ -41,9 +41,11 @@ public class HomeController : Controller
     return View();
   }
 
-
-
-
+   public IActionResult verificado2()
+  {
+    //Response.Cookies.Delete("Registro");
+    return View();
+  }
   public async Task<IActionResult> guardaregistro([Bind("documento_usuario, hora_ingreso, hora_salida")] Registro registro)
   {
     if (ModelState.IsValid)
@@ -52,17 +54,8 @@ public class HomeController : Controller
       await _context.SaveChangesAsync();
 
     }
-    return View();
+    return RedirectToAction("verificado2", "Home");
   }
-
-
-
-
-
-
-
-
-
 
   [HttpPost]
   public IActionResult Verify(string Nombre, string Documento)
@@ -79,19 +72,13 @@ public class HomeController : Controller
     }
   }
 
-
-
-
-
-
-
-
-
   public IActionResult Verificado(int id)
   {
     var usuarioEncontrado = _context.Users.FirstOrDefault(u => u.Id == id);
 
     TempData["usuario"] = usuarioEncontrado.nombre;
+    TempData["hora"] = DateTime.Now;
+    TempData["salida"] = null;
     var movimiento = new Registro // Asume que 'Registro' es el nombre de tu modelo de movimiento
     {
 
@@ -104,7 +91,7 @@ public class HomeController : Controller
       // Si la cookie no existe, crearla y establecer el valor
       string RegistroJson = JsonSerializer.Serialize(new List<Registro> { movimiento });
       HttpContext.Response.Cookies.Append("Registro", RegistroJson);
-      ViewData["Registros"] = movimiento;
+
     }
     else
     {
@@ -122,6 +109,8 @@ public class HomeController : Controller
             hora_ingreso = item.hora_ingreso,
             hora_salida = DateTime.Now
           };
+          TempData["hora"] = item.hora_ingreso;
+          TempData["salida"] = DateTime.Now;
           dato = true;
           listaRegistro.Remove(item);
           Response.Cookies.Delete("Registro");

@@ -1,48 +1,50 @@
 <link rel="stylesheet" href="~/css/Index.css" />
-
-
-
 @model Registros.Models.User
 
 
 
 
+<meta http-equiv="refresh" content="5; url=/Home/Index">
 
 
+<div class="login-box"  id="caja2">
+  <h2>Bienvenido</h2>
 
+    <div class="user-box">
+      @if (TempData["usuario"] != null)
+        {
 
-@if (ViewData["Registro"] != null)
-{
-    var RegistroJson = ViewData["Registro"] as string;
-    <p>Valor de la cookie 'Usuarios': @RegistroJson</p>
-}
+        <h2 id="Title">@TempData["usuario"]</h2>
+        }
 
+    </div>
+    <div class="user-box">
+      @if (TempData["hora"] != null)
+        {   
+            @if (TempData["hora"] != null)
+            {
+                DateTime hora = (DateTime)TempData["hora"];
+                <h1 id="info">ENTRADA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
+            }
+        } 
+    </div>
+    <div class="user-box">
+      @if (TempData["hora"] != null)
+        {   
+            @if (TempData["salida"] != null)
+            {
+                DateTime hora = (DateTime)TempData["salida"];
+                <h1 id="info2">SALIDA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
+            }
+        } 
+    </div>
+    <button  type="submit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-
-
-
-<div class="login-box " id="caja2">
-    <h2>Login</h2>
-
-    <div class="user-box"></div>
-    @if (TempData["usuario"] != null)
-    {
-        <h1 id="Title">Bienvenido, @TempData["usuario"]</h1>
-    }
 </div>
-<div class="user-box"></div>
-@if (ViewData["Registros"] != null)
-{
-    var movimiento = ViewData["Registros"] as string;
-    <p>Hora de ingreso: @movimiento</p>
-}
-</div>
 
-<button id="visaje">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
 
-</div>

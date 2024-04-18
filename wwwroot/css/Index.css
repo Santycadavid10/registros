@@ -216,3 +216,11 @@ body {
 #visaje{
   opacity: 1;
 }
+#info{
+  color: #03e9f4;
+  margin-bottom: 5vh;
+}
+
+#info2{
+  color: #ff4000;
+}
