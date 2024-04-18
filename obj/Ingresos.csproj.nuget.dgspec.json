@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/riwip5-022/Downloads/Ingresosv5/Ingresos/Ingresos.csproj": {}
+    "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj": {}
   },
   "projects": {
-    "/home/riwip5-022/Downloads/Ingresosv5/Ingresos/Ingresos.csproj": {
+    "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/riwip5-022/Downloads/Ingresosv5/Ingresos/Ingresos.csproj",
+        "projectUniqueName": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj",
         "projectName": "Ingresos",
-        "projectPath": "/home/riwip5-022/Downloads/Ingresosv5/Ingresos/Ingresos.csproj",
-        "packagesPath": "/home/riwip5-022/.nuget/packages/",
-        "outputPath": "/home/riwip5-022/Downloads/Ingresosv5/Ingresos/obj/",
+        "projectPath": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj",
+        "packagesPath": "/home/riwip5-018/.nuget/packages/",
+        "outputPath": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/riwip5-022/.nuget/NuGet/NuGet.Config"
+          "/home/riwip5-018/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
