@@ -11,5 +11,6 @@ namespace Registros.Data
     {
     }
     public DbSet<User> Users { get; set; }
+    public DbSet<Registro> Registros { get; set; }
   }
 }
