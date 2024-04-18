@@ -4,6 +4,7 @@ using Registros.Models;
 using Registros.Data;
 using System.Text.Json;
 using Ingresos.Models;
+using Usuarios.Models;
 
 
 namespace Ingresos.Controllers;
