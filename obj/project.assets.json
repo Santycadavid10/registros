@@ -763,19 +763,19 @@
     ]
   },
   "packageFolders": {
-    "/home/riwip5-018/.nuget/packages/": {}
+    "C:\\Users\\hp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj",
+      "projectUniqueName": "C:\\Users\\hp\\Downloads\\registros\\Ingresos.csproj",
       "projectName": "Ingresos",
-      "projectPath": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/Ingresos.csproj",
-      "packagesPath": "/home/riwip5-018/.nuget/packages/",
-      "outputPath": "/home/riwip5-018/Downloads/Ingresos11/Ingresos/obj/",
+      "projectPath": "C:\\Users\\hp\\Downloads\\registros\\Ingresos.csproj",
+      "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hp\\Downloads\\registros\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/riwip5-018/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -793,6 +793,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -831,16 +836,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /home/riwip5-018/Downloads/Ingresos11/Ingresos/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

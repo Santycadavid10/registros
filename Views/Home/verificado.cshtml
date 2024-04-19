@@ -1,11 +1,7 @@
-<link rel="stylesheet" href="~/css/Index.css" />
-@model Usuarios.Models.User
-
-
-
 
 <meta http-equiv="refresh" content="5; url=/Home/Index">
-
+<link rel="stylesheet" href="~/css/Index.css" />
+@model Usuarios.Models.User
 
 <div class="login-box"  id="caja2">
   <h2>Bienvenido</h2>
@@ -38,13 +34,17 @@
             }
         } 
     </div>
-    <button  type="submit">
+    <button  type="submit" id="visaje" disabled>
       <span></span>
       <span></span>
       <span></span>
       <span></span>
     </button>
-
+    <form action="@Url.Action("Detalles", "User")" method="post">
+    <button id="detalles">
+        Historico
+    </button>
+    </form>
 </div>
 
 
