@@ -24,12 +24,6 @@ public class HomeController : Controller
   }
 
 
-
-
-
-
-
-
   public IActionResult Index()
   {
     //Response.Cookies.Delete("Registro");
@@ -63,9 +57,11 @@ public class HomeController : Controller
     // Verificar si el usuario y la contraseña coinciden en la base de datos
     var usuarioEncontrado = _context.Users.FirstOrDefault(u => u.nombre == Nombre && u.documento_hash == Documento);
     if (usuarioEncontrado != null)
+
     {
       return RedirectToAction("verificado", "Home", new { id = usuarioEncontrado.Id }); // Puedes pasar el ID u otro parámetro si lo necesitas
     }
+
     else
     {
       return RedirectToAction("Index", "Home");
