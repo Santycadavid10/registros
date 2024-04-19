@@ -59,7 +59,14 @@ public class HomeController : Controller
     if (usuarioEncontrado != null)
 
     {
-      return RedirectToAction("verificado", "Home", new { id = usuarioEncontrado.Id }); // Puedes pasar el ID u otro parámetro si lo necesitas
+      if (usuarioEncontrado.nombre == "admin" && usuarioEncontrado.documento_hash == "admin123")
+      {
+        return RedirectToAction("AdminView", "Administradores");
+      }
+      else{
+        return RedirectToAction("verificado", "Home", new { id = usuarioEncontrado.Id }); // Puedes pasar el ID u otro parámetro si lo necesitas
+      }
+      
     }
 
     else

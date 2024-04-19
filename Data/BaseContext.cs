@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Registros.Models;
+using Usuarios.Models;
 
 
 

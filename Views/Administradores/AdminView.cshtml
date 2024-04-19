@@ -1,2 +1,33 @@
-@model Registros.Models.User
+@model List<Usuarios.Models.User>
 <h1>VISTA DEL ADMIN</h1>
+
+<div class="table-responsive">
+    <div><a type="button" class="btn btn-success" asp-area="" asp-controller="Administradores" asp-action="Create">Crear
+            Empleado</a></div>
+    <h1 class="text-center mb-4">LISTADO DE USUARIO</h1>
+    <table class="table table-dark table-striped table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Nombres</td>
+            <td>Documento</td>
+            <td>Acciones</td>
+        </tr>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.nombre</td>
+                <td>@user.documento_hash</td>
+                <td>
+                    <form action="@Url.Action("Detalles","Administradores", new {documento = user.documento_hash})" method="post">
+                        <button>Detalles</button>
+                    </form>
+                    <a class="btn btn-info" asp-area="" asp-controller="Users" asp-action="Edit"
+                        asp-route-id="@user.Id">Editar</a>
+                    <a class="btn btn-danger" asp-area="" asp-controller="Users" asp-action="Delete"
+                        asp-route-id="@user.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

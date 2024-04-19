@@ -4,6 +4,7 @@ using Registros.Models;
 using Registros.Data;
 using System.Text.Json;
 using Ingresos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ingresos.Controllers;
 public class AdministradoresController : Controller{
@@ -12,19 +13,22 @@ public class AdministradoresController : Controller{
     {
         _context = context;
     }
-    public IActionResult AdminView(){
-    return View();
+    //Controlador para ver usuarios
+    public async Task<IActionResult> AdminView(){
+        return View(await _context.Users.ToListAsync());
     }
-    public IActionResult Verify (string Nombre, string Documento){
-        //Verfica si el usuario es Admin
-        var usuarioEncontrado = _context.Users.FirstOrDefault(u => u.nombre == Nombre && u.documento_hash == Documento);
-        if (usuarioEncontrado.nombre == "admin" && usuarioEncontrado.documento_hash == "admin123"){
-            return RedirectToAction ("AdminView", "Administradores");
-        }
-
-        else
+    //Controlador para ver detalles
+    public async Task<IActionResult> Detalles(int? Documento){
+        if (Documento == null)
         {
-            return RedirectToAction("Index", "Home");
+            return NotFound();
         }
+        string? idstring = Documento.ToString();
+        var Registros = await _context.Registros.Where( m => m.documento_usuario == idstring).ToListAsync();
+        if (Registros == null)
+        {
+            return NotFound();
+        }
+        return View(Registros);
     }
 }
