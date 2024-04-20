@@ -1,30 +1,33 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 using Registros.Data;
-using System.Text.Json;
-using Ingresos.Models;
+using Registros.Models;
+using Usuarios.Models;
 
-namespace Usuary.Controllers;
-
-public class UserController : Controller
+namespace Usuarios.Controllers
 {
-  public readonly BaseContext _context;
-
-  public UserController(BaseContext context)
+  public class UserController : Controller
   {
-    _context = context;
+    public readonly BaseContext _context;
+    public UserController(BaseContext context)
+    { 
+      _context = context;
+    }
+    public async Task<IActionResult> Detalles(int? id)
+    {
+      if(id == null)
+      {
+        return NotFound();
+      }
+      string idString = id.ToString();
+      var registro =  await  _context.Registros.Where(m => m.documento_usuario == idString).ToListAsync();;
+      if(registro == null)
+      {
+        return NotFound();
+      }
+      return View(registro);
+    }
   }
-
-
-
-
-
 }
-
-
-
-
-
 
 
