@@ -11,7 +11,10 @@ namespace Registros.Data
     public BaseContext(DbContextOptions<BaseContext> options) : base(options)
     {
     }
+
+
     public DbSet<User> Users { get; set; }
     public DbSet<Registro> Registros { get; set; }
-  }
+
+    }
 }

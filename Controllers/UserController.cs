@@ -5,8 +5,6 @@ using Registros.Data;
 using System.Text.Json;
 using Ingresos.Models;
 
-
-
 namespace Usuary.Controllers;
 
 public class UserController : Controller

@@ -4,7 +4,8 @@ using Registros.Models;
 using Registros.Data;
 using System.Text.Json;
 using Ingresos.Models;
-using Usuary.Models;
+
+
 
 
 namespace Ingresos.Controllers;
@@ -77,13 +78,15 @@ public class HomeController : Controller
   {
     var usuarioEncontrado = _context.Users.FirstOrDefault(u => u.Id == id);
 
-    TempData["usuario"] = usuarioEncontrado.nombre;
+
+    TempData["documento"] = usuarioEncontrado?.documento_hash;
+    TempData["usuario"] = usuarioEncontrado?.nombre;
     TempData["hora"] = DateTime.Now;
     TempData["salida"] = null;
     var movimiento = new Registro // Asume que 'Registro' es el nombre de tu modelo de movimiento
     {
 
-      documento_usuario = usuarioEncontrado.documento_hash,
+      documento_usuario = usuarioEncontrado?.documento_hash,
       hora_ingreso = DateTime.Now
     };
 
@@ -97,9 +100,11 @@ public class HomeController : Controller
     else
     {
       // Si la cookie ya existe, obtener su valor y deserializarlo
-      string RegistroJson = HttpContext.Request.Cookies["Registro"];
+      string? RegistroJson = HttpContext.Request.Cookies["Registro"];
+      #nullable disable
       List<Registro> listaRegistro = JsonSerializer.Deserialize<List<Registro>>(RegistroJson);
-      var dato = false;
+      #nullable disable
+      
       foreach (var item in listaRegistro)
       {
         if (item.documento_usuario == movimiento.documento_usuario)
@@ -112,7 +117,6 @@ public class HomeController : Controller
           };
           TempData["hora"] = item.hora_ingreso;
           TempData["salida"] = DateTime.Now;
-          dato = true;
           listaRegistro.Remove(item);
           Response.Cookies.Delete("Registro");
           string RegistroJson1 = JsonSerializer.Serialize(listaRegistro);
