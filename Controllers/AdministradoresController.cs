@@ -5,6 +5,7 @@ using Registros.Data;
 using System.Text.Json;
 using Ingresos.Models;
 using Microsoft.EntityFrameworkCore;
+using Usuarios.Models;
 
 namespace Ingresos.Controllers;
 public class AdministradoresController : Controller{
@@ -30,5 +31,27 @@ public class AdministradoresController : Controller{
             return NotFound();
         }
         return View(Registros);
+    }
+    //Controlador para eliminar
+    public async Task<IActionResult> Eliminar (int? id){
+        var user = await _context.Users.FindAsync(id);
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("AdminView");
+    }
+
+    //Controlador para crear
+    public IActionResult Crear(){
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Crear([Bind("nombre, documento_hash ")]User user){
+        if (ModelState.IsValid)
+        {
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("AdminView");
+        }
+        return View(user);
     }
 }
