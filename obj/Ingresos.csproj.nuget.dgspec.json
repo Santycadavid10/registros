@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/riwip5-035/Desktop/santy/registros/Ingresos.csproj": {}
+    "C:\\Users\\hp\\Desktop\\trabajo\\registros\\Ingresos.csproj": {}
   },
   "projects": {
-    "/home/riwip5-035/Desktop/santy/registros/Ingresos.csproj": {
+    "C:\\Users\\hp\\Desktop\\trabajo\\registros\\Ingresos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/riwip5-035/Desktop/santy/registros/Ingresos.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\Ingresos.csproj",
         "projectName": "Ingresos",
-        "projectPath": "/home/riwip5-035/Desktop/santy/registros/Ingresos.csproj",
-        "packagesPath": "/home/riwip5-035/.nuget/packages/",
-        "outputPath": "/home/riwip5-035/Desktop/santy/registros/obj/",
+        "projectPath": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\Ingresos.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/riwip5-035/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -70,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

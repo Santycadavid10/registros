@@ -7,7 +7,7 @@ using Ingresos.Models;
 
 
 
-namespace Usuarios.Controllers;
+namespace Usuary.Controllers;
 
 public class UserController : Controller
 {

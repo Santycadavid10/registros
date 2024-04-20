@@ -40,8 +40,8 @@
       <span></span>
       <span></span>
     </button>
-    <form action="@Url.Action("Detalles", "User")" method="post">
-    <button id="detalles">
+    <form action="@Url.Action("Detalles", "User", new {id = TempData["documento"]})" method="post">
+    <button id="detalles" type="submit">
         Historico
     </button>
     </form>
