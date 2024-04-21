@@ -20,23 +20,31 @@
     </div>
     <div class="user-box">
       @if (TempData["hora"] != null)
-        {   
-            @if (TempData["hora"] != null)
-            {
-                DateTime hora = (DateTime)TempData["hora"];
-                <h1 id="info">ENTRADA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
-            }
-        } 
+      {
+        DateTime? hora = TempData["hora"] as DateTime?;
+        if (hora.HasValue)
+        {
+          <h1 id="info">ENTRADA: Día: @hora?.ToString("dd") hora: @hora?.ToString("h:mm:ss tt")</h1>
+        }
+        else
+        {
+          <h1 id="info">ENTRADA: No se ha especificado la hora</h1>
+        }
+      } 
     </div>
     <div class="user-box">
-      @if (TempData["hora"] != null)
-        {   
-            @if (TempData["salida"] != null)
-            {
-                DateTime hora = (DateTime)TempData["salida"];
-                <h1 id="info2">SALIDA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
-            }
-        } 
+      @if (TempData["salida"] != null)
+      {
+        DateTime? salida = TempData["salida"] as DateTime?;
+        if (salida.HasValue)
+        {
+          <h1 id="info2">SALIDA: Día: @salida?.ToString("dd") hora: @salida?.ToString("h:mm:ss tt")</h1>
+        }
+        else
+        {
+          <h1 id="info2">SALIDA: No se ha especificado la hora de salida</h1>
+        }
+      }   
     </div>
     <button  type="submit">
       <span></span>

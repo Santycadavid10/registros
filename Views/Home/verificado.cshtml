@@ -8,39 +8,34 @@
 
     <div class="user-box">
       @if (TempData["usuario"] != null)
+      {
+      <h2 id="Title">@TempData["usuario"]</h2>
+      }
+
+    </div>
+    <div class="user-box">
+      @if (TempData["hora"] != null)
+      {
+        DateTime? hora = TempData["hora"] as DateTime?;
+        if (hora.HasValue)
         {
-
-        <h2 id="Title">@TempData["usuario"]</h2>
+          <h1 id="info">ENTRADA: Día: @hora?.ToString("dd") hora: @hora?.ToString("h:mm:ss tt")</h1>
         }
+        else
+        {
+          <h1 id="info">ENTRADA: No se ha especificado la hora</h1>
+        }
+      }
 
     </div>
-    <div class="user-box">
-      @if (TempData["hora"] != null)
-        {   
-            @if (TempData["hora"] != null)
-            {
-                DateTime hora = (DateTime)TempData["hora"];
-                <h1 id="info">ENTRADA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
-            }
-        } 
-    </div>
-    <div class="user-box">
-      @if (TempData["hora"] != null)
-        {   
-            @if (TempData["salida"] != null)
-            {
-                DateTime hora = (DateTime)TempData["salida"];
-                <h1 id="info2">SALIDA: Día: @hora.ToString("dd") hora: @hora.ToString("h:mm:ss tt")</h1>
-            }
-        } 
-    </div>
+    
     <button  type="submit" id="visaje" disabled>
       <span></span>
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <form action="@Url.Action("Detalles", "User", new {id = TempData["documento"]})" method="post">
+    <form action="@Url.Action("Detalles", "User", new {id = TempData["documento"], nombre = @TempData["usuario"]})" method="post">
     <button id="detalles" type="submit">
         Historico
     </button>

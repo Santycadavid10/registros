@@ -13,13 +13,14 @@ namespace Usuarios.Controllers
     { 
       _context = context;
     }
-    public async Task<IActionResult> Detalles(int? id)
+    public async Task<IActionResult> Detalles(int? id, string? nombre)
     {
+      TempData["usuari"] = nombre;
       if(id == null)
       {
         return NotFound();
       }
-      string idString = id.ToString();
+      string? idString = id.ToString();
       var registro =  await  _context.Registros.Where(m => m.documento_usuario == idString).ToListAsync();;
       if(registro == null)
       {

@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: linear-gradient(#141e30, #243b55);
+  overflow: hidden;
 }
 
 .login-box {
@@ -192,6 +193,21 @@ body {
   border-radius: 10px;
 }
 
+#cajaUsers{
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  width: 95vw;
+  height: 75vh;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+
 .login-box div a {
   position: relative;
 
@@ -236,4 +252,90 @@ body {
   border-color: #03e9f4;
   color: rgb(105, 182, 50);
   font-size: 1.7rem;
+}
+
+#cajaUsers {
+  /* Estilos para el contenedor de la tabla */
+  max-height: calc(100vh - 15vh); /* Altura máxima de la caja, ajustada para dejar espacio para el título */
+  overflow: auto; /* Desplazamiento vertical automático cuando sea necesario */
+}
+
+#cajaUsers::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+#cajaUsers::-webkit-scrollbar-thumb {
+  background-color: #090909; /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 5px; /* Borde redondeado del pulgar */
+}
+
+#cajaUsers::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color del pulgar de la barra de desplazamiento al pasar el cursor */
+}
+
+#cajaUsers::-webkit-scrollbar-track {
+  background-color: #36344d; /* Color de la pista de la barra de desplazamiento */
+}
+
+
+
+
+
+
+
+
+
+
+#cajaUsers table {
+  /* Estilos para la tabla dentro del contenedor */
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  border-collapse: collapse; /* Colapsar bordes de celda */
+  color: aliceblue;
+}
+
+#cajaUsers table thead tr th {
+  /* Estilos para el encabezado de la tabla */
+  position: sticky;
+  top: -7vh; /* Fijar el encabezado en la parte superior */
+  height: 12vh;
+  font-size: 2rem;
+}
+
+#cajaUsers table th {
+  /* Estilos para las celdas de encabezado */
+  padding: 8px;
+  font-size: 1.2rem;
+}
+
+
+#cajaUsers th, #cajaUsers td {
+  /* Estilos para las celdas de la tabla */
+  padding: 8px;
+}
+#textoh{
+  position: absolute;
+  top: 5vh;
+  left: 10vw;
+  color: aliceblue;
+  width: 50vw;
+}
+
+#vuelve{
+  width: 18vw;
+  height: 8vh;
+  position: absolute;
+  top: 90vh;
+  left: 40vw;
+  border-radius: 100px;
+  background-color: #141e30;
+  border-color: #03e9f4;
+  color: rgb(105, 182, 50);
+  font-size: 1.7rem;
+  text-align: center;
+}
+#vuelve:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
 }
