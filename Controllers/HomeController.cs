@@ -66,7 +66,14 @@ public class HomeController : Controller
     var usuarioEncontrado = _context.Users.FirstOrDefault(u => u.nombre == Nombre && u.documento_hash == Documento);
     if (usuarioEncontrado != null)
     {
-      return RedirectToAction("verificado", "Home", new { id = usuarioEncontrado.Id }); // Puedes pasar el ID u otro parámetro si lo necesitas
+      if (usuarioEncontrado.nombre == "admin" && usuarioEncontrado.documento_hash == "admin123")
+      {
+        return RedirectToAction("AdminView", "Administradores");
+      }
+      else{
+        return RedirectToAction("verificado", "Home", new { id = usuarioEncontrado.Id }); // Puedes pasar el ID u otro parámetro si lo necesitas
+      }
+      
     }
     else
     {
@@ -80,7 +87,6 @@ public class HomeController : Controller
 
 
     TempData["documento"] = usuarioEncontrado?.documento_hash;
-    J
     TempData["hora"] = DateTime.Now;
     TempData["salida"] = null;
     var movimiento = new Registro // Asume que 'Registro' es el nombre de tu modelo de movimiento

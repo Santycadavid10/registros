@@ -1,0 +1,22 @@
+@model List<Registros.Models.Registro>
+
+
+<h1>VISTA PARA VER LOS DETALLES</h1>
+<div class="table-responsive">
+    <table class="table table-dark table-striped table-hover">
+        <tr>
+            <td>Documento</td>
+            <td>Hora ingreso</td>
+            <td>Hora Salida</td>
+        </tr>
+        <tr>
+            @foreach(var Registro in Model){
+                <tr>
+                <td>@Registro.documento_usuario</td>
+                <td>@Registro.hora_ingreso</td>
+                <td>@Registro.hora_salida</td>
+                </tr>
+            }
+        </tr>
+    </table>
+</div>
