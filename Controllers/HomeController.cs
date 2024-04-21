@@ -80,7 +80,7 @@ public class HomeController : Controller
 
 
     TempData["documento"] = usuarioEncontrado?.documento_hash;
-    TempData["usuario"] = usuarioEncontrado?.nombre;
+    J
     TempData["hora"] = DateTime.Now;
     TempData["salida"] = null;
     var movimiento = new Registro // Asume que 'Registro' es el nombre de tu modelo de movimiento
