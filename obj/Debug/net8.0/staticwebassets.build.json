@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iVoVZLfdr8EIolwLTns2/96LapXQGseeh8m8UIEr2us=",
+  "Hash": "1d0WB7pBOepzJIs+xMoML1rxqA9R52jg9i4ph88tbSE=",
   "Source": "Ingresos",
   "BasePath": "_content/Ingresos",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Ingresos.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\wwwroot\\css\\administradores.css",
+      "SourceId": "Ingresos",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\wwwroot\\",
+      "BasePath": "_content/Ingresos",
+      "RelativePath": "css/administradores.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\administradores.css"
     },
     {
       "Identity": "C:\\Users\\hp\\Desktop\\trabajo\\registros\\wwwroot\\css\\Index.css",
